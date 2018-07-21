@@ -6,7 +6,10 @@ import { AppComponent } from "./app.component";
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
 
 import { MenuComponent } from "./menu/menu.component";
+import { HomeComponent } from './home/home.component';
 import { DishService } from "./services/dish.service";
+import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
 import { DrawerComponent } from './shared/drawer/drawer.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
@@ -38,14 +41,17 @@ import { baseURL } from './shared/baseurl';
         AppComponent,
         MenuComponent,
         DishdetailComponent,
-        DrawerComponent
+        DrawerComponent,
+        HomeComponent
     ],
     providers: [
         {provide: 'BaseURL', useValue: baseURL},
         DishService,
         ProcessHTTPMsgService,
         HttpModule,
-        HttpClientModule
+        HttpClientModule,
+        PromotionService,
+        LeaderService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
