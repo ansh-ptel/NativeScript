@@ -6,4 +6,4 @@ export interface Promotion {
     price: string;
     featured: boolean;
     description: string;
-}   
+}

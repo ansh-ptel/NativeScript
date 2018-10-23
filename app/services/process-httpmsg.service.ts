@@ -1,24 +1,21 @@
 import { Injectable } from '@angular/core';
-
 import { throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
-export class ProcessHTTPMsgService {
 
-  constructor() { }
+export class ProcessHTTPMsgService{
+    constructor() { }
+    public handleError(error: HttpErrorResponse | any){
+        let errMess: string;
 
-  public handleError(error: HttpErrorResponse | any) {
-    let errMsg: string;
-
-    if (error.error instanceof ErrorEvent) {
-      errMsg = error.error.message;
-    } else {
-      errMsg = `${error.status} - ${error.statusText || ''} ${error.message}`;
+        if(error.error instanceof ErrorEvent){
+            errMess = error.error.message;
+        }else{
+            errMess = `${error.status} - ${error.statusText || ''} ${error.message}`;
+        }
+        return throwError(errMess);
     }
-
-    return throwError(errMsg);
-  }
 }

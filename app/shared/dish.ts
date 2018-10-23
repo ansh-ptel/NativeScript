@@ -1,6 +1,6 @@
 import { Comment } from './comment';
 
-export interface Dish {
+export interface Dish{
     id: number;
     name: string;
     image: string;
